@@ -26,7 +26,7 @@ function About() {
                 make choices that are best for you and your baby.</p></div></li>
           <li>
             <div>
-<Image src="/first.avif" width={400} height={400}  className='ml-[900px] -mt-[250px] rounded-lg'>
+<Image src="/images/first.avif" width={400} height={400}  className='ml-[900px] -mt-[250px] rounded-lg'>
 
 </Image>
             </div>
