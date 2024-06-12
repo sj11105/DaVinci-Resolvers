@@ -1,6 +1,6 @@
-import About from "./components/About";
+import About from "./About/page";
 import Features from "./components/Features";
-import Services from "./components/Services";
+import Services from "./Services/page";
 
 
 
