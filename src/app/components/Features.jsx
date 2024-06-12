@@ -14,7 +14,7 @@ Whether you're looking for expert advice, health and wellness tips, or just a pl
 We're here to help you every step of the way. Welcome to our community
             </div></li>
           <li><div>
-          <Image src="/second.avif" width={400} height={400}  className='ml-[300px] mt-[60px] rounded-lg'>
+          <Image src="/images/second.avif" width={400} height={400}  className='ml-[300px] mt-[60px] rounded-lg'>
 
 </Image></div>
           </li>
