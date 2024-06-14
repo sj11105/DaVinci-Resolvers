@@ -1,9 +1,11 @@
+from flask import Flask, request, jsonify
 import os
 import json
 import time
-import streamlit as st
 from PIL import Image
 import google.generativeai as genai
+
+app = Flask(__name__)
 
 # Get the working directory
 working_directory = os.path.dirname(os.path.abspath(__file__))
@@ -45,76 +47,30 @@ def is_medical(content):
     response = gemini_pro_response(prompt)
     return response.strip().lower() == 'true'
 
-# Main function to run the Streamlit app
-def main():
-    # Set Streamlit page configuration
-    st.set_page_config(page_title="Know Your Diet", layout="centered")
-    st.title("Know Your Diet")
+# Define endpoint for processing uploaded image and report analysis
+@app.route('/api/process_report', methods=['POST'])
+def process_report():
+    try:
+        uploaded_image = request.files['file']
+        image = Image.open(uploaded_image)
+        default_prompt = "read the given report completely"
+        info_read = gemini_pro_vision_response(default_prompt, image)
 
-    # File uploader for image upload
-    st.divider()
-    uploaded_image = st.file_uploader("Upload your Report...", type=["jpg", "jpeg", "png"])
+        if is_medical(info_read):
+            read_name = gemini_pro_response(f"read the patient's first name from - {info_read}")
+            if len(read_name) > 20:
+                read_name = ''
+            
+            response_data = {
+                'name': read_name.strip(),
+                'abnormal': is_abnormal(info_read),
+                'info_read': info_read
+            }
+            return jsonify(response_data), 200
+        else:
+            return jsonify({'error': 'Non-medical report submitted.'}), 400
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
-    # Check if an image is uploaded and the upload button is clicked
-    if uploaded_image is not None and st.button("Upload"):
-        try:
-            # Open the uploaded image using PIL
-            image = Image.open(uploaded_image)
-            col1 = st.columns(2)[0]
-
-            with col1:
-                # Display the uploaded image
-                st.image(image)
-
-            # Display a spinner while processing the image
-            with st.spinner(text="Reading your reports, please wait..."):
-                time.sleep(6)
-
-            # Default prompt for reading the report
-            default_prompt = "read the given report completely"
-            # Get the information from the image using the gemini-pro-vision model
-            info_read = gemini_pro_vision_response(default_prompt, image)
-
-            # Check if the read content is a medical report
-            if is_medical(info_read):
-                st.caption("Information gathered!")
-                # Extract the patient's name from the read information
-                read_name = gemini_pro_response(f"read the patient's first name from - {info_read}")
-                if len(read_name) > 20:
-                    read_name=''
-                st.subheader(f'Hello {read_name.strip()} !!')
-
-                # Check if there are any abnormalities in the report
-                if is_abnormal(info_read):
-                    prompt = f"simply state the abnormal behaviour or any deficiencies in brief from the given report results and make it sound assuring: {info_read}"
-                else:
-                    st.subheader("Your test results look great. Keep up with your health :)")
-                    prompt = f"give a brief paragraph casual feedback or general health checkpoints for a pregnant lady on the basis of given reports considering no concerning abnormal behavior in the blood reports and make it assuring and convincing: {info_read}"
-
-                # Get the response based on the prompt
-                box = st.container(border=True)
-                report_result = gemini_pro_response(prompt)
-                box.markdown(report_result, unsafe_allow_html=True)
-
-                # Suggest a diet plan based on the report
-                prompt = f"Suggest a diet plan based on the following reports taken into consideration the deficiencies found in the report but do not include any example diet plan: {info_read}"
-                diet_plan = gemini_pro_response(prompt)
-                st.subheader("Advised Diet Plan")
-                box = st.container(border=True)
-                box.markdown(diet_plan, unsafe_allow_html=True)
-
-                # Prepare a diet schedule based on the diet plan
-                prompt = f"Prepare a diet schedule for three meals for the day and snacks, taking into consideration the following diet plan recommendation: {diet_plan}"
-                ex_diet = gemini_pro_response(prompt)
-                box = st.container(border=True)
-                box.markdown(ex_diet, unsafe_allow_html=True)
-            else:
-                # Handle case when a non-medical file is submitted
-                st.error("A non-medical file report was submitted. Please submit a valid medical report.")
-        except Exception as e:
-            # Display an error message if any exception occurs
-            st.error(f"An error occurred: {e}")
-
-# Run the main function if the script is executed
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    app.run(debug=True)
