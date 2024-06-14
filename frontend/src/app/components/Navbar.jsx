@@ -7,13 +7,13 @@ function Navbar() {
     <div>
       <div className='flex justify-between mt-4'>
         <ul>
-          <li>logo</li>
+          <li className="ml-[40px]">logo</li>
         </ul>
         <ul className='flex gap-6'>
-        <Link href="/">HOME</Link>
+        <Link href="/" className="font-semibold hover:text-orange-500" >HOME</Link>
         <Link href="/About" smooth={true} duration={500}><li  className='hover:text-orange-500 font-semibold'>ABOUT US</li></Link>
-          <Link href='/Services'><li  className='hover:text-orange-500 font-semibold'>SERVICES</li></Link>
-          <li  className='hover:text-orange-500 font-semibold'>CONTACT US</li>
+          <Link href='/Services' ><li  className='hover:text-orange-500 font-semibold'>SERVICES</li></Link>
+          <li  className='hover:text-orange-500 font-semibold mr-[30px]'>CONTACT US</li>
       
         </ul>
       </div>
