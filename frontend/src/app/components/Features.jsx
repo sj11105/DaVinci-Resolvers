@@ -9,7 +9,7 @@ function Features() {
           <li><div className=' w-[300px] md:w-[500px]  ml-[30px] md:ml-[50px] mt-[50px]'>
           Congratulations on your pregnancy! We are thrilled to accompany you on this incredible journey to parenthood. At[website name], we understand that every pregnancy is unique and filled with moments of joy, anticipation, and sometimes uncertainty. Our mission is to provide you with the support, information, and community you need to navigate this beautiful chapter of your life.
 
-Whether you're looking for expert advice, health and wellness tips, or just a place to connect with other expectant parents, you'll find it here. Explore our wide range of resources, from personalized pregnancy trackers and due date calculators to informative articles and interactive tools designed to make your experience as smooth and enjoyable as possible.
+Whether you're looking for expert advice, health and wellness tips, you'll find it here. Explore our wide range of resources, from personalized diet and to informative articles and machine learning designed to help you detect your posture experience as smooth and enjoyable as possible.
 
 We're here to help you every step of the way. Welcome to our community
             </div></li>

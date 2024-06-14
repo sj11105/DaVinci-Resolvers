@@ -30,6 +30,7 @@ const SignUp = () => {
         body: formData,
       });
 
+<<<<<<< HEAD
       if (res.ok) {
         const data = await res.text();
         console.log(res.message);
@@ -42,6 +43,15 @@ const SignUp = () => {
     } catch (error) {
       console.error("Error submitting the form:", error);
       setError("Error submitting the form");
+=======
+    if (res.ok) {
+      router.push("/")
+      console.log('Form submitted successfully');
+    } else {
+      const errorData = await res.json();
+      setError(errorData.error);
+      console.error('Failed to submit form');
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
     }
   };
 
@@ -65,7 +75,11 @@ const SignUp = () => {
             onChange={(e) => setUserName(e.target.value)}
             type="text"
             placeholder="Enter your username"
+<<<<<<< HEAD
             className="border border-black p-0.5 mb-2 w-full rounded-sm"
+=======
+            className="border border-black bg-white p-0.5 mb-2 text-black w-full rounded-sm"
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
           />
           <br />
           <input
@@ -73,13 +87,21 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Enter your email id"
+<<<<<<< HEAD
             className="border border-black p-0.5 mb-2 w-full rounded-sm"
+=======
+            className="border border-black bg-white p-0.5 text-black mb-2 w-full rounded-sm"
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
           />
           <br />
           <input
             type="password"
             placeholder="Enter the password"
+<<<<<<< HEAD
             className="border border-black p-0.5 mb-2 w-full rounded-sm"
+=======
+            className="border border-black  bg-white text-black p-0.5 mb-2 w-full rounded-sm"
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -87,7 +109,11 @@ const SignUp = () => {
           <input
             type="text"
             placeholder="Enter the number"
+<<<<<<< HEAD
             className="border border-black p-0.5 mb-2 w-full rounded-sm"
+=======
+            className="border border-black bg-white text-black p-0.5 mb-2 w-full rounded-sm"
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
             value={number}
             onChange={(e) => setNumber(e.target.value)}
           />
@@ -97,6 +123,7 @@ const SignUp = () => {
             onChange={(e) => setAddress(e.target.value)}
             type="text"
             placeholder="Enter the address"
+<<<<<<< HEAD
             className="border border-black p-0.5 mb-2 w-full rounded-sm"
           />
           <input
@@ -111,6 +138,25 @@ const SignUp = () => {
           >
             Sign Up
           </button>
+=======
+            className="border border-black bg-white text-black p-0.5 mb-2 w-full rounded-sm"
+          />
+        <input
+          onChange={handleFileChange}
+          type="file"
+          placeholder="Upload a file"
+          className="border border-black bg-white text-black p-0.5 mb-4 w-full rounded-sm"
+        />
+        <Link href="/" >
+        <button
+          type="submit"
+          className="border border-black mt-4 p-2 w-full  bg-black text-white hover:bg-orange-500 transition-colors"
+      
+        >
+          Sign Up
+        </button>
+        </Link>
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
         </div>
         {error && <p>{error}</p>}
       </form>

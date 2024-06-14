@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 node_modules/
+=======
+node_modules
+package-lock.json
+package.json
+venv
+>>>>>>> 932bad7f0df1081a39ad7e7e7f48fa239fd96998
