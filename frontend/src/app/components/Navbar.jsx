@@ -13,7 +13,7 @@ function Navbar() {
         <Link href="/" className="font-semibold hover:text-orange-500" >HOME</Link>
         <Link href="/About" smooth={true} duration={500}><li  className='hover:text-orange-500 font-semibold'>ABOUT US</li></Link>
           <Link href='/Services' ><li  className='hover:text-orange-500 font-semibold'>SERVICES</li></Link>
-          <li  className='hover:text-orange-500 font-semibold mr-[30px]'>CONTACT US</li>
+        <Link href='/Contact'><li  className='hover:text-orange-500 font-semibold mr-[30px]'>CONTACT US</li></Link>  
       
         </ul>
       </div>

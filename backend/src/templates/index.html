@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pose Detection</title>
+</head>
+<body>
+    <h1>Pose Detection</h1>
+    <video id="video" controls autoplay width="100%"></video>
+    <script>
+        const video = document.getElementById('video');
+        video.src = "{{ url_for('video_feed') }}";
+    </script>
+</body>
+</html>
