@@ -102,7 +102,7 @@ const SignUp = () => {
         <button
           type="submit"
           className="border border-black  p-2 w-full bg-black text-white hover:bg-orange-500 transition-colors"
-          /* className="border border-black p-2 w-full bg-yellow-600 text-white custom-shadow-button" */
+      
         >
           Sign Up
         </button>
