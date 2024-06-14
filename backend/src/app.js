@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const axios = require('axios');
 const express = require('express');
 const app = express();
 const session = require('express-session');
@@ -11,8 +11,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('../models/user.js');
 const multer = require('multer');
-const { storage } = require('./cloudConfig.js');
-const upload = multer({ storage });
+const {storage} = require('./cloudConfig.js');
+const upload = multer({storage});
 const mongoose = require('mongoose');
 const port = 8080;
 app.set('views', path.join(__dirname, '/views'));
@@ -22,10 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(cors());
+let emailforevery=" ";
 
 // Session configuration
 const sessionOptions = {
-    secret: process.env.SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -51,6 +52,13 @@ main().then(() => {
 async function main() {
     await mongoose.connect('mongodb://localhost:27017/pregnancy');
 }
+
+app.use((req,res,next)=>{
+    
+    res.locals.currUser=req.user;
+    
+    next();
+  });
 
 // Set up email transporter
 const transporter = nodemailer.createTransport({
@@ -78,33 +86,28 @@ app.get('/signup', async (req, res) => {
 });
 
 app.post('/signup', upload.single('image'), async (req, res, next) => {
-    console.log(req.body);
-    try {
         const { username, email, password, whatsappnumber, address } = req.body;
+        emailforevery=email;
         const user1 = await User.findOne({ email });
         if (user1) {
-            return res.redirect('/signup');
+            return res.redirect('/login');
         }
        else{
         const user = new User({ username, email, whatsappnumber, address });
-        if (req.file) {
-            user.image = {
-                path: req.file.path,
-                filename: req.file.filename
-            };
-        }
-
-        const reguser = await User.register(user, password);
+            user.image.path = req.file.path;
+                user.image.filename=req.file.filename
+            ;
+        
+        
+        let reguser = await User.register(user, password);
         req.login(reguser, (err) => {
             if (err) {
                 return next(err);
             }
-            res.send('done');
+            console.log('loginhogaya');
+            res.status(200).json({ message: '2020' });
         });}
-    } catch (err) {
-        console.error(err);
-        res.redirect('/signup');
-    }
+    
 });
 
 app.get('/logout', isLoggedIn, (req, res, next) => {
@@ -115,6 +118,27 @@ app.get('/logout', isLoggedIn, (req, res, next) => {
         res.redirect('/');
     });
 });
+
+
+
+app.get('/opencvbc', async (req, res) => {
+    try {
+        const response = await axios({
+            url: 'http://127.0.0.1:5000/video_feed', // URL of the Flask endpoint
+            method: 'GET',
+            responseType: 'stream'
+        });
+
+        res.setHeader('Content-Type', 'multipart/x-mixed-replace; boundary=frame');
+        response.data.pipe(res);
+    } catch (error) {
+        console.error('Error fetching video feed:', error);
+        res.status(500).send('Error fetching video feed');
+    }
+});
+
+
+
 
 app.get('/forgotpassword', async (req, res) => {
     res.render('users/enteremail.ejs');
@@ -167,7 +191,9 @@ app.post('/verifyotp', async (req, res) => {
         res.redirect('/forgotpassword');
     }
 });
-
+app.get("/printtheuser",(req,res)=>{
+    console.log(emailforevery);
+});
 app.post('/resetpassword', async (req, res) => {
     const { newpassword, confirmpassword, emailfront } = req.body;
     const email = emailfront;

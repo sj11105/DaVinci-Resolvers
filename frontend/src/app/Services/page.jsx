@@ -33,7 +33,7 @@ function Services() {
 
 "Exercise" provides expert recommendations for safe and beneficial physical activities during pregnancy. This feature covers a range of exercises, including prenatal yoga, gentle stretching, and low-impact cardio, all designed to support the changing body and promote overall health. With the help of machine learning model we guide them on their postures so that it does not effect the growth of baby.
       </p>
-       <Link href="/KnowDiet"><button className='bg-black rounded-xl text-white p-6 mt-6 ml-[600px]'><FaArrowRight className="text-white" /></button></Link>
+       <Link href="http://localhost:8080/opencvbc"  target="_blank"><button className='bg-black rounded-xl text-white p-6 mt-6 ml-[600px]'><FaArrowRight className="text-white" /></button></Link>
         
       </div> 
     
