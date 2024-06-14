@@ -4,10 +4,18 @@
 
 
 .green_gradient {
-    @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-purple-500 bg-clip-text text-transparent;
 }
 
-.outline_btn {
-    @apply rounded-md border border-black bg-transparent py-1 px-1 text-black transition-all hover:bg-green-600  text-sm  flex items-center justify-center;
+/* .outline_btn {
+    @apply rounded-md border border-black bg-transparent py-1 px-1 text-black transition-all hover:bg-purple-600  text-sm  flex items-center justify-center;
   }
-  
+   */
+  .outline_btn {
+    @apply rounded-md border border-black bg-white py-1 px-1 text-black transition-all hover:bg-purple-600  text-sm flex items-center justify-center;
+  }
+
+  .analogous-blue-green {
+    background-color: #009688;
+    color: #FFFFFF; /* White for text contrast */
+}
