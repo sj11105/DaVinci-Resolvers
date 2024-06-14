@@ -17,7 +17,7 @@ function About() {
   }, []);
   return (
     <div id="about">
-      <Navbar />
+    
       <div>
         <ul>
           <li className=''><div className=" w-[400px] md:w-[800px]"><h1 className='  text-3xl md:text-5xl font-bold text-orange-400  mt-[100px] md:mt-[200px] ml-[50px] md:ml-[200px]'>
@@ -29,7 +29,7 @@ function About() {
                 make choices that are best for you and your baby.</p></div></li>
           <li>
             <div>
-<Image src="/images/first.avif" width={400} height={400}  className=' -ml-[20px] md:ml-[900px]  mt-[40px] md:-mt-[250px] rounded-lg'>
+<Image src="/images/first.avif" width={400} height={400}  className=' -ml-[20px] md:ml-[850px]  mt-[40px] md:-mt-[250px] rounded-lg'>
 
 </Image>
             </div>
