@@ -36,7 +36,7 @@ function Home() {
         </ul>
         <Generalised />
       </div>
-     <Link href="/signup"><button className="bg-black text-white p-3 rounded-xl ml-[300px] -mt-[200px]">Get Started</button></Link> 
+     <button className="bg-black text-white p-3 rounded-xl ml-[300px] -mt-[200px]">Get Started</button>
     </div>
   )
 }
