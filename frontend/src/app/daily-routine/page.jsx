@@ -70,9 +70,15 @@ const DailyRoutine = () => {
                                  and <b> premature birth</b>
                                 </p>
                             </p>
+                            <p className="mt-2 text-md leading-6">
+                            <b >  DON'T drink alcohol </b>
+                                <p className='mt-2'>
+                                Drinking in pregnancy can lead to long-term harm to the baby. The more you drink, the greater the risk. There is no known <b>safe level </b>for drinking alcohol during pregnancy, so it's best to avoid it completely during pregnancy.
+                                </p>
+                            </p>
                             
                         </section>
-                        <YouTubeVideo videoId={"8OgKjzcY5Fk"}/>
+                      <YouTubeVideo videoId={"TxwBvq7K3Jg"} /> 
                     </div>
                 ) :
                 (<></>)

@@ -5,10 +5,9 @@ import Navbar from '../components/Navbar';
 function Services() {
   return (
     <>
-<<<<<<< HEAD
-      <Navbar />
+    <Navbar />
       <h1 className='text-3xl font-bold ml-[550px] mt-[180px] absolute text-orange-500 font-serif'>Care During Pregnancy</h1>
-=======
+
 
     <h1 className='text-3xl font-bold ml-[550px] mt-[180px] absolute text-orange-500 font-serif'>Care During Pregnancy</h1>
    
@@ -34,8 +33,7 @@ function Services() {
       <div className='mt-[90px] ml-[200px]'>
       <h1 className="text-2xl font-bold">Know Your Daily Routine</h1>
       <p className='mt-4 w-[800px] text-justify'><span className="font-bold text-center">Every bite counts—make it nutritious and beneficial for your baby.</span><br></br>
->>>>>>> af964148dead83b87d554ea4a5f96c43736933bf
-
+      </p>
       <div id='services' className='mt-[300px] bg-orange-100 h-[1500px] rounded-tr-full w-[100vw] -ml-[50px]'>
 
         <img src="https://i.pinimg.com/originals/5f/68/b1/5f68b18a611acf00b429eca5b8236801.gif" alt="" srcset="" className='ml-[600px] w-[350px] ' />
@@ -64,10 +62,9 @@ function Services() {
           <Link href="/KnowDiet"><button className='bg-black rounded-xl text-white p-6 mt-6 ml-[600px]'><FaArrowRight className="text-white" /></button></Link>
 
         </div>
-
       </div>
-
-
+      </div>
+      </div>
     </>
 
   )
