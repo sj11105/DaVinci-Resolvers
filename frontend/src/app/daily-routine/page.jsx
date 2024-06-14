@@ -111,7 +111,9 @@ const DailyRoutine = () => {
                 </button>
             </div>
 
-            {isClickedTwo ? (<></>
+            {isClickedTwo ? (<>
+            
+            </>
 
             ):(<></>)}
 

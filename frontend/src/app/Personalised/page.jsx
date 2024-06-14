@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState("");
   const [error, setError] = useState(null);
 
   const handleFileChange = (e) => {
@@ -16,7 +16,7 @@ const UploadForm = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('/api/process_report', formData, {
+      const response = await axios.post(' http://127.0.0.1:5000/api/process_report', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
