@@ -19,3 +19,16 @@
     background-color: #009688;
     color: #FFFFFF; /* White for text contrast */
 }
+
+@keyframes spin-fast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-fast {
+  animation: spin-fast 0.5s linear infinite;
+}
