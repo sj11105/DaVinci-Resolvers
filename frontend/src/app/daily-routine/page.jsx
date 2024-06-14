@@ -20,8 +20,8 @@ const DailyRoutine = () => {
     return (
         <div>
             <h1 className='mt-4 text-center text-xl font-extrabold '>Daily Routine For Pregnant Lady</h1>
-            <div className='mt-4 mx-auto flex w-4/5 justify-between  p-1 items-center bg-white'>
-                <p className='text-red-600  ml-4 text-lg '>
+            <div className="mt-4 mx-auto flex w-4/5 justify-between p-1 items-center bg-purple-200 shadow-lg shadow-gray-500/50">
+                <p className='text-black  ml-4 text-lg '>
                     First Trimester (Plan for 0 - 3 month)
                 </p>
                 <button type="button" className='outline_btn' onClick={handleClick}>
@@ -38,7 +38,11 @@ const DailyRoutine = () => {
 
             {isClicked ?
                 (
+<<<<<<< HEAD
                     <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-grey-200 rounded-lg shadow-md p-6 ">
+=======
+                    <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
+>>>>>>> 9909ff46de9d29fd3b4ae706736d86874c7b2dc8
                         <section className="text-black">
                             <h2 className="font-bold text-2xl mb-4">Do's</h2>
                             <p className="text-md leading-6">
