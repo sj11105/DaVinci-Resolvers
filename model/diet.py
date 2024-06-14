@@ -1,7 +1,7 @@
 import os
 import json
 import time
-import streamlit as st
+import streamlit as st # type: ignore
 from PIL import Image
 import google.generativeai as genai
 
