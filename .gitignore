@@ -1,8 +1,4 @@
 node_modules
 package-lock.json
-<<<<<<< HEAD
-package.json
-=======
 package.json
 venv
->>>>>>> 9909ff46de9d29fd3b4ae706736d86874c7b2dc8

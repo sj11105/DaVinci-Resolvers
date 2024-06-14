@@ -38,11 +38,7 @@ const DailyRoutine = () => {
 
             {isClicked ?
                 (
-<<<<<<< HEAD
-                    <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-grey-200 rounded-lg shadow-md p-6 ">
-=======
                     <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
->>>>>>> 9909ff46de9d29fd3b4ae706736d86874c7b2dc8
                         <section className="text-black">
                             <h2 className="font-bold text-2xl mb-4">Do's</h2>
                             <p className="text-md leading-6">
