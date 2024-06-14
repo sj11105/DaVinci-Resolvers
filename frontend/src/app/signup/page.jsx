@@ -1,6 +1,7 @@
 // pages/signup.js
 "use client"
 import { useState } from "react";
+import Link from "next/link";
 
 const SignUp = () => {
   const [username, setUserName] = useState("");
@@ -97,7 +98,7 @@ const SignUp = () => {
           placeholder="Upload a file"
           className="border border-black bg-white p-0.5 mb-4 w-full rounded-sm"
         />
-        
+        <Link href="/" >
         <button
           type="submit"
           className="border border-black  p-2 w-full bg-black text-white hover:bg-orange-500 transition-colors"
@@ -105,6 +106,7 @@ const SignUp = () => {
         >
           Sign Up
         </button>
+        </Link>
         </div>
         {error && <p>{error}</p>}
       </form>

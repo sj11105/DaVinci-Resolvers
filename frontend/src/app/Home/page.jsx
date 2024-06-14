@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Generalised from '../generalised/page';
+import Link from 'next/link';
 function Home() {
   const paragraphRef = useRef(null);
 
@@ -35,7 +36,7 @@ function Home() {
         </ul>
         <Generalised />
       </div>
-      <button className="bg-black text-white p-3 rounded-xl ml-[300px] -mt-[200px]">Get Started</button>
+     <Link href="/signup"><button className="bg-black text-white p-3 rounded-xl ml-[300px] -mt-[200px]">Get Started</button></Link> 
     </div>
   )
 }
