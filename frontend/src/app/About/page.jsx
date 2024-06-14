@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Generalised from '../generalised/page';
+import Navbar from '../components/Navbar';
 function About() {
   const paragraphRef = useRef(null);
 
@@ -16,6 +17,7 @@ function About() {
   }, []);
   return (
     <div id="about">
+      <Navbar />
       <div>
         <ul>
           <li className=''><div className=" w-[400px] md:w-[800px]"><h1 className='  text-3xl md:text-5xl font-bold text-orange-400  mt-[100px] md:mt-[200px] ml-[50px] md:ml-[200px]'>

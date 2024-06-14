@@ -35,7 +35,7 @@ function Home() {
         </ul>
         <Generalised />
       </div>
-      but
+      <button className="bg-black text-white p-3 rounded-xl ml-[300px] -mt-[200px]">Get Started</button>
     </div>
   )
 }
