@@ -20,7 +20,7 @@ def is_posture_correct(a, b, c, d, e, f, g, h, i, j, k, l):
     return (a == g and b == h and c == i and d == j and e == k and f == l)
 
 # Define the path to the dataset directory
-dataset_path = "C:/Users/Hp/Desktop/Working/SheCodes/Exercise"
+dataset_path = "./Exercise"
 
 # Initialize a list to hold images
 image_dataset = []
