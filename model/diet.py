@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
 import json
 import time
@@ -7,6 +8,7 @@ from PIL import Image
 import google.generativeai as genai
 
 app = Flask(__name__)
+CORS(app)
 
 # Get the working directory
 working_directory = os.path.dirname(os.path.abspath(__file__))
