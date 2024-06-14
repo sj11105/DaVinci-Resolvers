@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 function Services() {
   return (
     <>
-<Navbar />
+
     <h1 className='text-3xl font-bold ml-[550px] mt-[180px] absolute text-orange-500 font-serif'>Care During Pregnancy</h1>
    
     <div id='services' className='mt-[300px] bg-orange-100 h-[1500px] rounded-tr-full w-[100vw] -ml-[50px]'>

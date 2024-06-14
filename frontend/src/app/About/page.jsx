@@ -17,7 +17,7 @@ function About() {
   }, []);
   return (
     <div id="about">
-      <Navbar />
+    
       <div>
         <ul>
           <li className=''><div className=" w-[400px] md:w-[800px]"><h1 className='  text-3xl md:text-5xl font-bold text-orange-400  mt-[100px] md:mt-[200px] ml-[50px] md:ml-[200px]'>
