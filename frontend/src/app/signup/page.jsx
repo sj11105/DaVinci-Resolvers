@@ -29,6 +29,7 @@ const SignUp = () => {
     });
 
     if (res.ok) {
+      router.push("/")
       console.log('Form submitted successfully');
     } else {
       const errorData = await res.json();
