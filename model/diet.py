@@ -4,13 +4,14 @@ import os
 import json
 import time
 from PIL import Image
-import generativeai as genai  # Assuming generativeai is correctly imported
+import google.generativeai as genai  # Assuming generativeai is correctly imported
 
 app = Flask(__name__)
 CORS(app)
 
 # Get the working directory
 working_directory = os.path.dirname(os.path.abspath(__file__))
+# pip install google-generativeai
 
 # Path to the configuration file
 config_file_path = os.path.join(working_directory, "config.json")
