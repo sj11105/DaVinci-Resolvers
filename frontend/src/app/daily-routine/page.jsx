@@ -169,7 +169,7 @@ const DailyRoutine = () => {
             {isClickedThree ? (
                 <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
                     <section className="text-black">
-                        <h2 className="font-bold text-2xl mb-4">Your baby gains most weight in the third trimester, preparing for birth and rapid brain development.</h2>
+                        <h2 className="font-bold text-xl mb-4">Your baby gains most weight in the third trimester, preparing for birth and rapid brain development.</h2>
                         <h3 className='text-lg font-bold mb-2'>Do's</h3>
                         <p className="text-md leading-6">
                             Our advice is to go sleep on your side in the third trimester because research has shown that this is safer for your baby.
@@ -190,6 +190,14 @@ const DailyRoutine = () => {
                             
                          </p>
                          <YouTubeVideo videoId={"TxwBvq7K3Jg"}/>
+                         <p className='mt-4 text-md leading-6'>
+                            <h3 className='text-lg font-bold mb-2'>Do Monitor your baby's movements</h3>
+                            <p className='mt-4 text-md leading-6'>
+                                Feeling your baby move is a sign that they are well. You usually start to feel your baby moving when you’re between 18 and 24 weeks. If this is your first baby, you might not feel movements until after 20 weeks
+                            </p>
+                            <p className='mt-4 text-md leading-6'>
+                            The movements can feel like a gentle swirling or fluttering. As your pregnancy progresses, you may feel kicks and jerky movements.                            </p>
+                         </p>
                     </section>
                     </div>
                     ):(<> </>)}
