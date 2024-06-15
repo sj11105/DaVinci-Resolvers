@@ -5,7 +5,7 @@ import Options from './Option'
 function Navbar() {
   return (
     <div>
-      <div className='flex justify-between mt-4'>
+      <div className='flex justify-between -mt-[1px] bg-white text-black'>
         <ul>
           <li className="ml-[40px]"><img src="images/logo.png" alt="" srcset="" className="w-[50px] rounded-full" /></li>
         </ul>

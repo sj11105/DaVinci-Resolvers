@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 function Features() {
   return (
-    <div>
-      <h1 className='text-5xl mt-[150px] ml-[70px] md:ml-[600px] text-orange-300 text-bold '>Features</h1>
+    <div className='text-black -mt-[165px]' >
+      <h1 className='text-5xl  ml-[70px] md:ml-[600px] text-orange-300 text-bold '>Features</h1>
       <div className='mt-[100px]'>
         <ul className='flex-row md:flex'>
           <li><div className=' w-[300px] md:w-[500px]  ml-[30px] md:ml-[50px] mt-[50px]'>

@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 function Contact() {
   return (
-    <div>
-      <div className="ml-[50px]">
+    <div className='text-black'>
+      <div className="ml-[50px] h-[100vh]">
         <h1 className="font-bold text-3xl ml-[520px] mt-[100px]">Best Hospitals</h1>
         <ul className="flex gap-28 mt-[10px] ml-[50px]">
          <Link href="https://www.cloudninecare.com/">

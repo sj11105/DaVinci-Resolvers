@@ -41,7 +41,7 @@ const DailyRoutine = () => {
 
 
     return (
-        <div>
+        <div className='h-[100vh]'>
             <h1 className='mt-4 text-center text-xl font-extrabold '>Daily Routine For Pregnant Lady</h1>
             <div className="mt-4 mx-auto flex w-4/5 justify-between p-1 items-center bg-purple-200 shadow-lg shadow-gray-500/50">
                 <p className='text-black  ml-4 text-lg '>
