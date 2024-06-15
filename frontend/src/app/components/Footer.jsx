@@ -7,7 +7,7 @@ function Footer() {
     <div className="mt-[20px]">
       <div className="mt-[30px]">
         <ul className="flex gap-60"><li>
-          logo
+          <img src="/images/logo.png" alt="" srcset=""  className="w-[80px]"/>
         </li>
         <li><div>
         <h1 className="font-bold text-lg text-orange-300">Services</h1>

@@ -7,7 +7,7 @@ function Navbar() {
     <div>
       <div className='flex justify-between mt-4'>
         <ul>
-          <li className="ml-[40px]">logo</li>
+          <li className="ml-[40px]"><img src="images/logo.png" alt="" srcset="" className="w-[50px] rounded-full" /></li>
         </ul>
         <ul className='flex gap-6'>
         <Link href="/" className="font-semibold hover:text-orange-500" >HOME</Link>
