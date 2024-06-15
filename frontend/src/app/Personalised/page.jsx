@@ -27,21 +27,9 @@ const UploadForm = () => {
       setResult(response.data);
       setError(null);
     } catch (error) {
-      let errorMessage = 'An error occurred.';
-      if (error.response) {
-        if (error.response.data && error.response.data.error) {
-          errorMessage = error.response.data.error;
-        } else if (error.response.data) {
-          errorMessage = error.response.data;
-        } else {
-          errorMessage = error.response.statusText || errorMessage;
-        }
-      } else {
-        errorMessage = error.message || errorMessage;
-      }
       setResult(null);
-      setError(errorMessage);
-    } finally{
+      setError(error.response.data.error || 'An error occurred.');
+    }finally{
       setLoading(false)
     }
   };
@@ -81,7 +69,7 @@ const UploadForm = () => {
             <p className="mt-2 text-black text-lg">{result.result}</p> <br />
             <h1 className='text-black text-xl font-bold'>Advised diet plan</h1> <br />
             <p className="text-lg  text-black">{result.plan}!</p> <br />
-            <h1 className='text-black text-xl font-bold'>Example diet routine</h1> <br />
+            <h1 className='text-black text-xl font-bold'>Example diet </h1> <br />
             <p className="text-lg  text-black">{result.diet}!</p> <br />
             
           </div>

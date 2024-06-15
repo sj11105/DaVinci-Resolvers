@@ -191,13 +191,26 @@ const DailyRoutine = () => {
                          </p>
                          <YouTubeVideo videoId={"TxwBvq7K3Jg"}/>
                          <p className='mt-4 text-md leading-6'>
-                            <h3 className='text-lg font-bold mb-2'>Do Monitor your baby's movements</h3>
+                            <h3 className='text-xl font-bold mb-2'>Do Monitor your baby's movements</h3>
                             <p className='mt-4 text-md leading-6'>
                                 Feeling your baby move is a sign that they are well. You usually start to feel your baby moving when you’re between 18 and 24 weeks. If this is your first baby, you might not feel movements until after 20 weeks
                             </p>
                             <p className='mt-4 text-md leading-6'>
-                            The movements can feel like a gentle swirling or fluttering. As your pregnancy progresses, you may feel kicks and jerky movements.                            </p>
+                            The movements can feel like a gentle swirling or fluttering. As your pregnancy progresses, you may feel kicks and jerky movements.                           
+                             </p>
                          </p>
+                         <p className='mt-4 '>
+                            Check this wonderful video to monitor your <b> baby’s movements</b>
+                         </p>
+                         <YouTubeVideo videoId={"8OgKjzcY5Fk"}/>
+                         <h3 className='text-xl font-bold mb-2'>Do care for your mental health</h3>
+                         <p className='mt-4 text-md leading-6'>
+                         Your mental health is just as important as your physical health during pregnancy. Being pregnant is an <b>Emotional Experience</b>
+                         and it can be normal to experience mood swings or feel low from time to time. However, it’s important that you ask for help if these feelings become unmanageable or last longer than a couple of weeks.
+
+                        </p>
+                        <YouTubeVideo videoId={"_ZMvaXSEWEg"}/>
+        
                     </section>
                     </div>
                     ):(<> </>)}
