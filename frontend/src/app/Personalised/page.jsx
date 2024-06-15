@@ -60,15 +60,18 @@ const UploadForm = () => {
         
         {result && (
           <div className="mt-6 p-4 bg-green-100 rounded-lg shadow">
-            <p className="text-lg font-bold text-green-600">Hello {result.name}!</p><br />
-            <p className="mt-2 text-black text-lg">Information gathered: {result.result}</p> <br />
-            <p className="text-lg font-bold text-green-600">Hello {result.plan}!</p> <br />
-            <p className="text-lg font-bold text-green-600">Hello {result.diet}!</p> <br />
+            <p className="text-xl font-bold text-green-600">Hello {result.name}!</p><br />
             {result.abnormal ? (
-              <p className="mt-2 text-red-500">There are abnormalities in the report.</p>
+              <p className="mt-2 text-red-500 text-brown">There are some abnormalities in the report. <br />Relax we got you covered<br/></p>
             ) : (
-              <p className="mt-2 text-black">Your test results look great.</p>
+              <p className="mt-2 text-xl text-green-600">Your test results look great. <br />Keep up with your health. <br /></p>
             )}
+            <p className="mt-2 text-black text-lg">{result.result}</p> <br />
+            <h1 className='text-black text-xl font-bold'>Advised diet plan</h1> <br />
+            <p className="text-lg  text-black">{result.plan}!</p> <br />
+            <h1 className='text-black text-xl font-bold'>Example diet routine</h1> <br />
+            <p className="text-lg  text-black">{result.diet}!</p> <br />
+            
           </div>
         )}
 

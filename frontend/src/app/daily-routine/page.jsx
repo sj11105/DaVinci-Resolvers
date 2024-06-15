@@ -11,6 +11,9 @@ const DailyRoutine = () => {
     const [isRotatedTwo, setIsRotatedTwo] = useState(false)
     const [isClickedTwo, setIsClickedTwo] = useState(false)
 
+    const [isRotatedThree, setIsRotatedThree] = useState(false)
+    const [isClickedThree, setIsClickedThree] = useState(false)
+
     const handleClick = () => {
         setIsClicked(!isClicked)
     }
@@ -22,11 +25,19 @@ const DailyRoutine = () => {
         setIsClickedTwo(!isClickedTwo)
     }
 
-    const handleToggleTwo = () =>{
+    const handleToggleTwo = () => {
         setIsRotatedTwo(!isRotatedTwo)
     }
 
-    
+    const handleClickThree = () => {
+        setIsClickedThree(!isClickedThree)
+    }
+
+    const handleToggleThree = () => {
+        setIsRotatedThree(!isRotatedThree)
+    }
+
+
 
 
     return (
@@ -53,9 +64,9 @@ const DailyRoutine = () => {
                     <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
                         <section className="text-black">
                             <h2 className="font-bold text-2xl mb-4">Do's</h2>
-                            <li className="text-md leading-6 list-decimal">
+                            <p className="text-md leading-6">
                                 Folic acid significantly reduces your baby’s risk of neural tube defects, such as spina bifida. If you are pregnant, start taking 400 micrograms of folic acid as a supplement as soon as possible until the end of the first trimester (week 12 of your pregnancy).
-                            </li>
+                            </p>
                             <p className='mt-2 text-md leading-6'>
                                 You are also recommended to take a <span className='font-bold'>Vitamin D </span>
                                 during pregnancy and during breastfeeding. This helps your baby develop <b> healthy bones</b> , <b> teeth </b>and <b> muscles</b> .
@@ -111,17 +122,82 @@ const DailyRoutine = () => {
                 </button>
             </div>
 
-            {isClickedTwo ? (<>
-            
-            </>
+            {isClickedTwo ? (
+                <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
+                    <section className="text-black">
+                        <h2 className="font-bold text-2xl mb-4">Do's</h2>
+                        <h3 className='mb-2'>Parental Care</h3>
+                        <p className="text-md leading-6 list-decimal">
+                            <b> Regular Check-ups :</b> Keep all prenatal appointments to monitor your baby's growth and your health.
+                        </p>
+                        <p className='mt-2 text-md leading-6'>
+                            <b>Screening test :</b> Complete any recommended screening tests, such as the anatomy scan around 20 weeks
+                        </p>
+                        <p className='mt-2 text-md leading-6'>
+                            <b>Nutrient Intake :</b>  Focus on iron (to prevent anemia), calcium (for bone development), and folic acid (to prevent neural tube defects).
+                        </p>
+                        <p className='mt-2 text-md leading-6'>
+                            <b>Drink Water :</b>  Stay well-hydrated by drinking plenty of water throughout the day.
+                        </p>
+                        <p className='mt-2 text-md leading-6'>
+                            <b>Stay Active :</b>  Engage in regular, moderate exercise like walking, swimming, or prenatal yoga.
+                        </p>
+                        <p className='mt-2 text-md leading-6'>
+                            <b>Pelvic Floor Excercises :</b>  Perform Kegel exercises to strengthen pelvic floor muscles.
+                        </p>
 
-            ):(<></>)}
+                    </section>
+                </div>
+            ) : (<>
+            </>)}
+            <div className="mt-4 mx-auto flex w-4/5 justify-between p-1 items-center bg-purple-200 shadow-lg shadow-gray-500/50">
+                <p className='text-black  ml-4 text-lg '>
+                    Third Trimester (Plan for 6-9 month)
+                </p>
+                <button type="button" className='outline_btn' onClick={handleClickThree}>
+                    <Image
+                        src="/logos/dropdown-svgrepo-com.svg"
+                        width={40}
+                        height={40}
+                        className={isRotatedThree ? 'rotate-180' : 'rotate-0'}
+                        onClick={handleToggleThree}
+                    ></Image>
+                </button>
+            </div>
 
 
+            {isClickedThree ? (
+                <div className="mt-4 mx-auto w-4/5 bg-gradient-to-r bg-gray-200 rounded-lg shadow-md p-6 ">
+                    <section className="text-black">
+                        <h2 className="font-bold text-2xl mb-4">Your baby gains most weight in the third trimester, preparing for birth and rapid brain development.</h2>
+                        <h3 className='text-lg font-bold mb-2'>Do's</h3>
+                        <p className="text-md leading-6">
+                            Our advice is to go sleep on your side in the third trimester because research has shown that this is safer for your baby.
+                        </p>
+                        <p className='mt-4 text-md leading-6'>
+                            <ul className='list-disc list-inside'>
+                                Tips for going to sleep on your side in the last three months of pregnancy
+                                <li>
+                                    Put a pillow or pillows behind your back to encourage side-sleeping.
+                                </li>
+                                <li>
+                                    If you wake during the night, check your position and go back to sleep on your side.
+                                </li>
+                                <li>
+                                Pay the same attention to sleep position during the day as you would during the night.
+                                </li>
+                            </ul>
+                            
+                         </p>
+                         <YouTubeVideo videoId={"TxwBvq7K3Jg"}/>
+                    </section>
+                    </div>
+                    ):(<> </>)}
 
-        </div>
 
-    )
+                </div>
+
+            )
 }
 
-export default DailyRoutine;
+            export default DailyRoutine;

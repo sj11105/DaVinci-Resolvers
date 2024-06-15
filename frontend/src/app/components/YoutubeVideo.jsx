@@ -3,11 +3,11 @@ import React from 'react';
 
 const YouTubeVideo = ({ videoId }) => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-blue-100 ">
-      <div className="w-4/5 mx-auto rounded-lg overflow-hidden">
+    <div className="flex justify-center items-center min-h-screen bg-inherit ">
+      <div className="w-3/4 mx-auto rounded-lg overflow-hidden">
         <iframe
           width="100%"
-          height="500"
+          height="600"
           src={`https://www.youtube.com/embed/${videoId}`}
 
           title="YouTube video player"

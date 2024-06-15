@@ -99,6 +99,7 @@ def process_report():
 
             response_data = {
                 'name': read_name,
+                'abnormal':abnormal,
                 'result': repResult,
                 'plan': dietPlan,
                 'diet': dietSched
