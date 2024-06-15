@@ -7,7 +7,7 @@ function Services() {
     <>
 
       <h1 className='text-3xl font-bold ml-[550px] mt-[180px] absolute text-orange-500 font-serif'>Care During Pregnancy</h1>
-      <div className= 'mt-[300px] bg-orange-100 h-[1500px] rounded-tr-full w-[100vw] -ml-[50px]'>
+      <div className= 'mt-[300px] bg-orange-100 h-[1500px] rounded-tr-full w-[100vw] -ml-[50px] text-black'>
       
         <img src="https://i.pinimg.com/originals/5f/68/b1/5f68b18a611acf00b429eca5b8236801.gif" alt="" srcset="" className='ml-[600px] w-[350px] ' />
         <div className='mt-[90px] ml-[80px] border-black'>

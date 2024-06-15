@@ -124,7 +124,7 @@ app.get('/logout', isLoggedIn, (req, res, next) => {
 app.get('/opencvbc', async (req, res) => {
     try {
         const response = await axios({
-            url: 'http://127.0.0.1:5000/video_feed', // URL of the Flask endpoint
+            url: 'http://127.0.0.1:5001/video_feed', // URL of the Flask endpoint
             method: 'GET',
             responseType: 'stream'
         });
