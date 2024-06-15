@@ -27,9 +27,21 @@ const UploadForm = () => {
       setResult(response.data);
       setError(null);
     } catch (error) {
+      let errorMessage = 'An error occurred.';
+      if (error.response) {
+        if (error.response.data && error.response.data.error) {
+          errorMessage = error.response.data.error;
+        } else if (error.response.data) {
+          errorMessage = error.response.data;
+        } else {
+          errorMessage = error.response.statusText || errorMessage;
+        }
+      } else {
+        errorMessage = error.message || errorMessage;
+      }
       setResult(null);
-      setError(error.response.data.error || 'An error occurred.');
-    }finally{
+      setError(errorMessage);
+    } finally{
       setLoading(false)
     }
   };
