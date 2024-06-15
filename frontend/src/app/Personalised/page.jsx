@@ -27,20 +27,8 @@ const UploadForm = () => {
       setResult(response.data);
       setError(null);
     } catch (error) {
-      let errorMessage = 'An error occurred.';
-      if (error.response) {
-        if (error.response.data && error.response.data.error) {
-          errorMessage = error.response.data.error;
-        } else if (error.response.data) {
-          errorMessage = error.response.data;
-        } else {
-          errorMessage = error.response.statusText || errorMessage;
-        }
-      } else {
-        errorMessage = error.message || errorMessage;
-      }
       setResult(null);
-      setError(errorMessage);
+      setError(error.response.data.error || 'An error occurred.');
     }finally{
       setLoading(false)
     }
@@ -60,9 +48,9 @@ const UploadForm = () => {
           className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-800 transition duration-200"
           disabled={loading}
         >
-          {loading ? (
-            <svg className="animate-spin-fast h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+         {loading ? (
+            <svg className="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">
+              <circle className="opacity-25 " cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.953 7.953 0 014 12H0c0 4.411 3.589 8 8 8v-4.709z"></path>
             </svg>
           ) : (
@@ -72,12 +60,14 @@ const UploadForm = () => {
         
         {result && (
           <div className="mt-6 p-4 bg-green-100 rounded-lg shadow">
-            <p className="text-lg font-bold text-green-600">Hello {result.name}!</p>
-            <p className="mt-2 text-black">Information gathered: {result.info_read}</p>
+            <p className="text-lg font-bold text-green-600">Hello {result.name}!</p><br />
+            <p className="mt-2 text-black text-lg">Information gathered: {result.result}</p> <br />
+            <p className="text-lg font-bold text-green-600">Hello {result.plan}!</p> <br />
+            <p className="text-lg font-bold text-green-600">Hello {result.diet}!</p> <br />
             {result.abnormal ? (
               <p className="mt-2 text-red-500">There are abnormalities in the report.</p>
             ) : (
-              <p className="mt-2 text-green-700">Your test results look great.</p>
+              <p className="mt-2 text-black">Your test results look great.</p>
             )}
           </div>
         )}
