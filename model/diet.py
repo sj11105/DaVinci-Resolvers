@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import json
-import time
 from PIL import Image
 import google.generativeai as genai  # Assuming generativeai is correctly imported
 
@@ -63,6 +62,7 @@ def normalResults(report):
 # Function to remove unwanted symbols from response
 def removeSymbols(response):
     return response.strip().replace("*", '')
+
 
 # Function to suggest a diet plan
 def suggestivePlan(report_results):
