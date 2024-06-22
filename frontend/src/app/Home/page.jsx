@@ -27,7 +27,7 @@ function Home() {
             </h1>
             <p className=' text-3xl md:text-5xl font-bold text-orange-400 mt-[20px] ml-[50px] md:ml-[200px]'>Nurture Your Baby
               </p>
-              <p  ref={paragraphRef} className=' ml-[30px] md:ml-[240px] mt-[40px] font-semibold text1 w-[500px]'>Empower yourself with knowledge and <br></br>
+              <p  ref={paragraphRef} className=' ml-[30px] md:ml-[240px] mt-[40px] font-semibold w-[500px] text-black'>Empower yourself with knowledge and <br></br>
                 make choices that are best for you and your baby.</p></div></li>
           <li>
             <div>

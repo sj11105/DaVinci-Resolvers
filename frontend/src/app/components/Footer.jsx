@@ -4,7 +4,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
 function Footer() {
   return (
-    <div className="mt-[20px]">
+    <div className="mt-[20px] text-black">
       <div className="mt-[30px]">
         <ul className="flex gap-60"><li>
           <img src="/images/logo.png" alt="" srcset=""  className="w-[80px]"/>

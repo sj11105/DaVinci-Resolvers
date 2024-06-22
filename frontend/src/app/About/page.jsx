@@ -16,7 +16,7 @@ function About() {
     );
   }, []);
   return (
-    <div id="about">
+    <div id="about" className='h-[100vh]'>
     
       <div>
         <ul>

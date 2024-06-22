@@ -10,17 +10,24 @@ warnings.filterwarnings("ignore", category=UserWarning, module='google.protobuf.
 
 # Function to calculate angle given three points
 def calculate_angle(a, b, c):
-    radians = math.atan2(c[1]-b[1], c[0]-b[0]) - math.atan2(a[1]-b[1], a[0]-b[0])
+    radians = math.atan2(c[1] - b[1], c[0] - b[0]) - math.atan2(a[1] - b[1], a[0] - b[0])
     angle = math.degrees(radians)
     if angle < 0:
         angle += 360
     return angle
 
-def is_posture_correct(a, b, c, d, e, f, g, h, i, j, k, l):
-    return (a == g and b == h and c == i and d == j and e == k and f == l)
+def is_posture_correct(a, b, c, d, e, f, g, h, i, j, k, l, tolerance=15):#UPDATED
+    return (
+        abs(a - g) < tolerance and
+        abs(b - h) < tolerance and
+        abs(c - i) < tolerance and
+        abs(d - j) < tolerance and
+        abs(e - k) < tolerance and
+        abs(f - l) < tolerance
+    )
 
 # Define the path to the dataset directory
-dataset_path = "./Exercise"
+dataset_path = "C:/Users/Hp/Desktop/Working/SheCodes/Exercise"
 
 # Initialize a list to hold images
 image_dataset = []
@@ -52,6 +59,12 @@ pose = mp_pose.Pose()
 # Initialize MediaPipe Drawing
 mp_drawing = mp.solutions.drawing_utils
 
+# Function to draw angles on the image
+def draw_angle(image, point1, point2, point3, angle, position, color=(0, 0, 0)):#UPDATED
+    cv2.putText(image, str(int(angle)),
+                position,
+                cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2, cv2.LINE_AA)
+
 # Start capturing video
 cap = cv2.VideoCapture(0)
 
@@ -63,9 +76,6 @@ while cap.isOpened():
         continue
 
     # Convert the BGR image to RGB
-    ###
-    #video_frame=cv2.imread("leglift.jpg")
-    ###
     video_frame_rgb = cv2.cvtColor(video_frame, cv2.COLOR_BGR2RGB)
     # Process the image and find pose landmarks
     video_results = pose.process(video_frame_rgb)
@@ -127,12 +137,31 @@ while cap.isOpened():
             shoulder_diff = abs(left_shoulder[1] - right_shoulder[1])
             hip_diff = abs(left_hip[1] - right_hip[1])
 
-            # Compare poses
-            if is_posture_correct(right_arm_angle, left_arm_angle, right_leg_angle, left_leg_angle, shoulder_diff, hip_diff,
-                                  v_right_arm_angle, v_left_arm_angle, v_right_leg_angle, v_left_leg_angle, v_shoulder_diff, v_hip_diff):
-                color = (0, 255, 0)
+###############################################################################UPDATED######################################################################
+            # Compare poses with a tolerance 
+            tolerance = 15
+            correct_posture = is_posture_correct(right_arm_angle, left_arm_angle, right_leg_angle, left_leg_angle,
+                                                 shoulder_diff, hip_diff, v_right_arm_angle, v_left_arm_angle,
+                                                 v_right_leg_angle, v_left_leg_angle, v_shoulder_diff, v_hip_diff,
+                                                 tolerance)
+
+            # Determine color for correctness feedback
+            if correct_posture:
+                color = (0, 255, 0)  # Green for correct posture
+                text = "Correct"
             else:
-                color = (0, 0, 255)
+                color = (0, 0, 255)  # Red for incorrect posture
+                text = "Incorrect"
+
+            # Draw angles on the live video frame
+            draw_angle(video_frame, v_right_shoulder, v_right_elbow, v_right_wrist, v_right_arm_angle,
+                       (50, 50), color)
+            draw_angle(video_frame, v_left_shoulder, v_left_elbow, v_left_wrist, v_left_arm_angle,
+                       (50, 80), color)
+            draw_angle(video_frame, v_right_hip, v_right_knee, v_right_ankle, v_right_leg_angle,
+                       (50, 110), color)
+            draw_angle(video_frame, v_left_hip, v_left_knee, v_left_ankle, v_left_leg_angle,
+                       (50, 140), color)
 
             # Draw the pose annotation on the image
             mp_drawing.draw_landmarks(
@@ -141,19 +170,33 @@ while cap.isOpened():
                 mp_drawing.DrawingSpec(color=color, thickness=2, circle_radius=2)
             )
 
+            # Draw angles on the reference image
+            draw_angle(image, right_shoulder, right_elbow, right_wrist, right_arm_angle,
+                       (50, 50), (0, 0, 0))
+            draw_angle(image, left_shoulder, left_elbow, left_wrist, left_arm_angle,
+                       (50, 80), (0, 0, 0))
+            draw_angle(image, right_hip, right_knee, right_ankle, right_leg_angle,
+                       (50, 110), (0, 0, 0))
+            draw_angle(image, left_hip, left_knee, left_ankle, left_leg_angle,
+                       (50, 140), (0, 0, 0))
+
             # Combine both frames side by side
             combined_frame = np.hstack((cv2.resize(cv2.cvtColor(image, cv2.COLOR_RGB2BGR), (video_frame.shape[1] // 2, video_frame.shape[0])),
                                         cv2.resize(video_frame, (video_frame.shape[1] // 2, video_frame.shape[0]))))
 
-            # Display the image
+            # Display correctness text on both frames
+            cv2.putText(combined_frame, f"Live: {text}", (50, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 1)
+            cv2.putText(combined_frame, f"Reference", (video_frame.shape[1] // 2 + 50, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+
+            # Display the combined frame
             cv2.imshow('Pose Detection', combined_frame)
             key = cv2.waitKey(1)
             if key == 27:  # 27 is the ASCII code for the ESC key
                 print('ESC key pressed. Exiting...')
                 break
-            elif key == 2555904:  # Right arrow key to move to the next image
+            elif key == ord('d'):  # 'd' key to move to the next image
                 image_index = (image_index + 1) % len(image_dataset)
-            elif key == 2424832:  # Left arrow key to move to the previous image
+            elif key == ord('a'):  # 'a' key to move to the previous image
                 image_index = (image_index - 1) % len(image_dataset)
 
 cap.release()

@@ -51,9 +51,22 @@ const UploadForm = () => {
 
       setResult(response.data);
     } catch (error) {
-      setError(error.response?.data?.error || 'An error occurred.');
-    } finally {
-      setLoading(false);
+      let errorMessage = 'An error occurred.';
+      if (error.response) {
+        if (error.response.data && error.response.data.error) {
+          errorMessage = error.response.data.error;
+        } else if (error.response.data) {
+          errorMessage = error.response.data;
+        } else {
+          errorMessage = error.response.statusText || errorMessage;
+        }
+      } else {
+        errorMessage = error.message || errorMessage;
+      }
+      setResult(null);
+      setError(errorMessage);
+    } finally{
+      setLoading(false)
     }
   };
 
@@ -76,24 +89,18 @@ const UploadForm = () => {
         
         {result && (
           <div className="mt-6 p-4 bg-green-100 rounded-lg shadow">
-            <p className="text-xl font-bold text-green-600">Hello {result.name}!</p>
-            <p className="mt-2 text-lg">
-              {result.abnormal ? (
-                <span className="text-red-500">There are some abnormalities in the report. Relax, we got you <br/></span>
-              ) : (
-                <span className="text-green-600">Your test results look great. Keep up with your health.<br/></span>
-              )}
-            <br/>
-            </p>
-            <p className="mt-2 text-black text-lg">{formatTextWithLineBreaks(result.result)}</p>
-            <br/>
-            <h1 className="text-black text-xl font-bold mt-4">Advised diet plan</h1>
-            <br/>
-            <p className="text-lg text-black">{formatTextWithLineBreaks(result.plan)}</p>
-            <br/>
-            <h1 className="text-black text-xl font-bold mt-4">Example diet routine</h1>
-            <br/>
-            <p className="text-lg text-black">{formatTextWithLineBreaks(result.diet)}</p>
+            <p className="text-xl font-bold text-green-600">Hello {result.name}!</p><br />
+            {result.abnormal ? (
+              <p className="mt-2 text-red-500 text-brown">There are some abnormalities in the report. <br />Relax we got you covered<br/></p>
+            ) : (
+              <p className="mt-2 text-xl text-green-600">Your test results look great. <br />Keep up with your health. <br /></p>
+            )}
+            <p className="mt-2 text-black text-lg">{result.result}</p> <br />
+            <h1 className='text-black text-xl font-bold'>Advised diet plan</h1> <br />
+            <p className="text-lg  text-black">{result.plan}!</p> <br />
+            <h1 className='text-black text-xl font-bold'>Example diet routine</h1> <br />
+            <p className="text-lg  text-black">{result.diet}!</p> <br />
+            
           </div>
         )}
 
